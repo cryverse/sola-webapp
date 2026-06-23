@@ -86,13 +86,29 @@ export default function PlacementTestPage() {
         });
 
       await supabase
-        .from("user_levels")
+        .from("profiles")
         .update({
-          current_level:
+          current_cefr:
             aiData.estimated_cefr,
-          progress_percent: 0,
+          current_sublevel:
+            aiData.estimated_sublevel,
         })
-        .eq("user_id", user.id);
+        .eq("id", user.id);
+
+      await supabase
+        .from("user_progress")
+        .upsert({
+          user_id: user.id,
+          cefr_level:
+            aiData.estimated_cefr,
+          cefr_sublevel:
+            aiData.estimated_sublevel,
+          cefr_progress: 0,
+          current_streak: 0,
+          best_streak: 0,
+          completed_sessions: 0,
+          total_minutes: 0,
+        });
 
       setResult(aiData);
     } catch (error) {
@@ -123,7 +139,7 @@ export default function PlacementTestPage() {
             {result.confidence_score}%
           </p>
 
-          <div className="border rounded-xl p-4 mb-6 text-left">
+          <div className="border rounded-xl p-4 mb-6">
 
             <p className="font-semibold mb-2">
               AI Analysis
