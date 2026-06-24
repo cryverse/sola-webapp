@@ -7,12 +7,14 @@ export default function RegisterPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [promoCode, setPromoCode] = useState("");
 
   async function handleRegister() {
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-    });
+    const { data, error } =
+      await supabase.auth.signUp({
+        email,
+        password,
+      });
 
     if (error) {
       alert(error.message);
@@ -22,35 +24,52 @@ export default function RegisterPage() {
     if (data.user) {
       await supabase.from("profiles").insert({
         id: data.user.id,
-        email: email,
+        email,
         full_name: name,
       });
 
-      alert("Аккаунт создан");
+      if (promoCode.trim()) {
+        await supabase
+          .from("promo_code_usages")
+          .insert({
+            user_id: data.user.id,
+          });
+      }
 
-      window.location.href = "/onboarding";
+      window.location.href =
+        "/welcome";
     }
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <div className="flex flex-col gap-3 w-96">
-        <h1 className="text-3xl font-bold">
+    <main className="min-h-screen flex items-center justify-center px-6">
+
+      <div className="w-full max-w-md flex flex-col gap-4">
+
+        <h1 className="text-4xl font-bold">
           Создать аккаунт
         </h1>
+
+        <p className="text-slate-500">
+          Начни изучать английский с ИИ.
+        </p>
 
         <input
           className="border p-3 rounded"
           placeholder="Имя"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) =>
+            setName(e.target.value)
+          }
         />
 
         <input
           className="border p-3 rounded"
           placeholder="Email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) =>
+            setEmail(e.target.value)
+          }
         />
 
         <input
@@ -58,16 +77,44 @@ export default function RegisterPage() {
           placeholder="Пароль"
           type="password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) =>
+            setPassword(e.target.value)
+          }
+        />
+
+        <input
+          className="border p-3 rounded"
+          placeholder="Промокод (необязательно)"
+          value={promoCode}
+          onChange={(e) =>
+            setPromoCode(e.target.value)
+          }
         />
 
         <button
           onClick={handleRegister}
-          className="border rounded p-3"
+          className="btn btn-primary"
         >
           Зарегистрироваться
         </button>
+
+        <div className="text-center text-sm">
+
+          Уже есть аккаунт?
+
+          {" "}
+
+          <a
+            href="/login"
+            className="text-blue-600"
+          >
+            Войти
+          </a>
+
+        </div>
+
       </div>
+
     </main>
   );
 }
