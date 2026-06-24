@@ -3,7 +3,6 @@ import Link from "next/link";
 export default function HomePage() {
 return ( <main className="fade">
 
-```
   {/* HERO */}
 
   <section className="container py-28 text-center">
