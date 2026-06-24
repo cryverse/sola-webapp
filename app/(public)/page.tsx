@@ -5,19 +5,19 @@ export default function HomePage() {
     <main className="fade">
 
       {/* ================= HERO ================= */}
-      <section className="container py-36 text-center relative">
+      <section className="container py-48 text-center">
 
         <div className="max-w-5xl mx-auto">
 
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-10">
+          <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-12">
             Перестань учить английский.
             <br />
             Начни говорить.
           </h1>
 
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed">
-            Sola — это AI-платформа, которая превращает знания английского
-            в реальную речь через практику, разговоры и персональное обучение.
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-12 leading-relaxed">
+            Sola — AI платформа, которая превращает знания английского в реальную речь.
+            Уроки, разговорная практика, словарь и система прогресса.
             <br />
             <span className="text-slate-500">
               15 минут в день. Без учебников. Без зубрёжки. Без хаоса.
@@ -34,38 +34,40 @@ export default function HomePage() {
             </a>
           </div>
 
-          <p className="text-sm text-slate-500 mt-6">
-            Без карты • Регистрация за 30 секунд • Доступ сразу
+          <p className="text-sm text-slate-500 mt-10">
+            Регистрация за 30 секунд • Доступ сразу
           </p>
 
         </div>
 
       </section>
 
-      {/* ================= TRUST STRIP ================= */}
-      <section className="container pb-32">
-        <div className="grid md:grid-cols-5 gap-4 text-center text-sm text-slate-600">
+      {/* ================= TRUST ================= */}
+      <section className="container pb-40">
+
+        <div className="grid md:grid-cols-5 gap-6 text-center text-sm text-slate-600">
 
           <div className="card">✓ CEFR уровень</div>
           <div className="card">✓ AI уроки</div>
           <div className="card">✓ Speaking практика</div>
-          <div className="card">✓ Vocabulary система</div>
+          <div className="card">✓ Vocabulary</div>
           <div className="card">✓ Progress tracking</div>
 
         </div>
+
       </section>
 
       {/* ================= PROBLEM ================= */}
-      <section className="container py-36">
+      <section className="container py-44">
 
         <h2 className="text-4xl font-bold text-center mb-6">
           Ты уже учил английский.
           <br />
-          Но почему не говоришь?
+          Но не говоришь.
         </h2>
 
         <p className="text-center text-slate-500 max-w-2xl mx-auto mb-16">
-          Проблема не в знаниях. Проблема в том, что ты никогда не тренировал речь системно.
+          Проблема не в знаниях — проблема в отсутствии системы практики речи.
         </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -77,12 +79,12 @@ export default function HomePage() {
 
           <div className="card">
             <h3 className="font-bold mb-2">Но не говоришь</h3>
-            <p className="text-slate-600">В реальной речи блокируется язык.</p>
+            <p className="text-slate-600">Речь не активируется.</p>
           </div>
 
           <div className="card">
             <h3 className="font-bold mb-2">Учишь годами</h3>
-            <p className="text-slate-600">Но прогресс почти не ощущается.</p>
+            <p className="text-slate-600">Без реального прогресса.</p>
           </div>
 
           <div className="card">
@@ -94,12 +96,12 @@ export default function HomePage() {
 
       </section>
 
-      {/* ================= WHY SOLA WORKS ================= */}
-      <section className="bg-white py-36">
+      {/* ================= WHY ================= */}
+      <section className="bg-white py-44">
 
         <div className="container">
 
-          <h2 className="text-4xl font-bold text-center mb-16">
+          <h2 className="text-4xl font-bold text-center mb-20">
             Почему Sola работает
           </h2>
 
@@ -107,16 +109,16 @@ export default function HomePage() {
 
             <div className="card">
               <h3 className="font-bold mb-2">Только практика</h3>
-              <p className="text-slate-600">Ты начинаешь говорить сразу.</p>
+              <p className="text-slate-600">Ты сразу говоришь.</p>
             </div>
 
             <div className="card">
               <h3 className="font-bold mb-2">Персонально</h3>
-              <p className="text-slate-600">Уроки под твой уровень.</p>
+              <p className="text-slate-600">Под твой уровень.</p>
             </div>
 
             <div className="card">
-              <h3 className="font-bold mb-2">80/20 подход</h3>
+              <h3 className="font-bold mb-2">80/20</h3>
               <p className="text-slate-600">Только полезный английский.</p>
             </div>
 
@@ -131,10 +133,10 @@ export default function HomePage() {
 
       </section>
 
-      {/* ================= HOW IT WORKS FLOW ================= */}
-      <section id="how" className="container py-36">
+      {/* ================= HOW ================= */}
+      <section id="how" className="container py-44">
 
-        <h2 className="text-4xl font-bold text-center mb-16">
+        <h2 className="text-4xl font-bold text-center mb-20">
           Как ты будешь учиться
         </h2>
 
@@ -152,16 +154,16 @@ export default function HomePage() {
           <div className="card">4. Получай AI фидбек</div>
           <div className="text-center text-slate-400">↓</div>
 
-          <div className="card">5. Видь реальный прогресс</div>
+          <div className="card">5. Реальный прогресс</div>
 
         </div>
 
       </section>
 
       {/* ================= FEATURES ================= */}
-      <section className="container py-36">
+      <section className="container py-44">
 
-        <h2 className="text-4xl font-bold text-center mb-16">
+        <h2 className="text-4xl font-bold text-center mb-20">
           Всё что нужно для прогресса
         </h2>
 
@@ -179,25 +181,24 @@ export default function HomePage() {
       </section>
 
       {/* ================= PRICING ================= */}
-      <section id="pricing" className="container py-36">
+      <section id="pricing" className="container py-48">
 
-        <h2 className="text-4xl font-bold text-center mb-16">
+        <h2 className="text-4xl font-bold text-center mb-20">
           Тарифы
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-8">
 
           {/* FREE */}
           <div className="card">
             <h3 className="font-bold text-xl">Free</h3>
-            <div className="text-4xl font-bold my-4">0 ₽</div>
+            <div className="text-4xl font-bold my-6">0 ₽</div>
 
             <ul className="space-y-2 text-slate-600">
               <li>✓ 1 сессия в день</li>
               <li>✓ 15 минут практики</li>
               <li>✓ Placement test</li>
               <li>✕ AI Speaking</li>
-              <li>✕ Продвинутая практика</li>
             </ul>
           </div>
 
@@ -210,7 +211,7 @@ export default function HomePage() {
 
             <h3 className="font-bold text-xl">Pro</h3>
 
-            <div className="flex items-center gap-3 my-4">
+            <div className="flex items-center gap-3 my-6">
               <span className="line-through text-slate-400">2990 ₽</span>
               <span className="text-4xl font-bold">1490 ₽</span>
             </div>
@@ -219,9 +220,7 @@ export default function HomePage() {
               <li>✓ 3 сессии в день</li>
               <li>✓ 45 минут практики</li>
               <li>✓ AI Speaking</li>
-              <li>✓ Расширенный словарь</li>
               <li>✓ Быстрый прогресс</li>
-              <li>✓ Приоритетные обновления</li>
             </ul>
 
             <button className="btn btn-primary w-full mt-6">
@@ -233,16 +232,11 @@ export default function HomePage() {
           {/* INTENSIVE */}
           <div className="card">
 
-            <div className="text-sm text-slate-500 mb-2">
-              Для максимального роста
-            </div>
-
             <h3 className="font-bold text-xl">Intensive</h3>
-            <div className="text-4xl font-bold my-4">2990 ₽</div>
+            <div className="text-4xl font-bold my-6">2990 ₽</div>
 
             <ul className="space-y-2 text-slate-600">
               <li>✓ 5 сессий в день</li>
-              <li>✓ 90 минут практики</li>
               <li>✓ Максимальный прогресс</li>
               <li>✓ Все функции</li>
             </ul>
@@ -254,13 +248,13 @@ export default function HomePage() {
       </section>
 
       {/* ================= FAQ ================= */}
-      <section className="container py-36">
+      <section className="container py-48">
 
-        <h2 className="text-4xl font-bold text-center mb-16">
+        <h2 className="text-4xl font-bold text-center mb-20">
           Частые вопросы
         </h2>
 
-        <div className="max-w-3xl mx-auto space-y-4">
+        <div className="max-w-3xl mx-auto space-y-6">
 
           <div className="card">
             <h3 className="font-bold">Сколько нужно заниматься?</h3>
@@ -268,13 +262,13 @@ export default function HomePage() {
           </div>
 
           <div className="card">
-            <h3 className="font-bold">Подойдёт ли новичкам?</h3>
+            <h3 className="font-bold">Подходит ли новичкам?</h3>
             <p className="text-slate-600 mt-2">Да, от A1 до C1.</p>
           </div>
 
           <div className="card">
             <h3 className="font-bold">Есть мобильное приложение?</h3>
-            <p className="text-slate-600 mt-2">Пока веб-версия.</p>
+            <p className="text-slate-600 mt-2">Пока только веб.</p>
           </div>
 
           <div className="card">
@@ -287,15 +281,11 @@ export default function HomePage() {
       </section>
 
       {/* ================= CTA ================= */}
-      <section className="container py-36 text-center">
+      <section className="container py-48 text-center">
 
-        <h2 className="text-5xl font-bold mb-6">
+        <h2 className="text-5xl font-bold mb-10">
           Начни сегодня
         </h2>
-
-        <p className="text-xl text-slate-600 mb-10">
-          Через несколько недель ты почувствуешь разницу.
-        </p>
 
         <Link href="/register" className="btn btn-primary">
           Начать бесплатно
@@ -304,9 +294,9 @@ export default function HomePage() {
       </section>
 
       {/* ================= FOOTER ================= */}
-      <footer className="border-t py-20">
+      <footer className="border-t py-32">
 
-        <div className="container grid md:grid-cols-4 gap-10">
+        <div className="container grid md:grid-cols-4 gap-12">
 
           <div>
             <h3 className="text-2xl font-bold text-blue-600">Sola</h3>
@@ -324,12 +314,12 @@ export default function HomePage() {
 
           <div>
             <h4 className="font-bold mb-3">Поддержка</h4>
-            
+            <p className="text-slate-600">Telegram</p>
           </div>
 
         </div>
 
-        <div className="container mt-10 text-center text-slate-500">
+        <div className="container mt-12 text-center text-slate-500">
           © 2026 Sola
         </div>
 
