@@ -7,10 +7,6 @@ export default function HomePage() {
       {/* ================= HERO ================= */}
       <section className="container py-36 text-center relative">
 
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 text-slate-700 text-sm mb-10">
-          🚀 Early Access • Первые 100 пользователей бесплатно
-        </div>
-
         <div className="max-w-5xl mx-auto">
 
           <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-10">
