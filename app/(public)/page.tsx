@@ -4,127 +4,263 @@ export default function HomePage() {
   return (
     <main className="fade">
 
-      {/* ================= HERO ================= */}
-      <section className="container py-48 text-center">
+      {/* HERO */}
+
+      <section className="container py-36 text-center">
 
         <div className="max-w-5xl mx-auto">
 
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-12">
-            Перестань учить английский.
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-8 text-sm text-slate-600">
+            🚀 AI-платформа для развития разговорного английского
+          </div>
+
+          <h1 className="text-6xl md:text-8xl font-bold leading-tight mb-8">
+            Перестань учить
+            <br />
+            английский.
             <br />
             Начни говорить.
           </h1>
 
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-12 leading-relaxed">
-            Sola — AI платформа, которая превращает знания английского в реальную речь.
-            Уроки, разговорная практика, словарь и система прогресса.
-            <br />
-            <span className="text-slate-500">
-              15 минут в день. Без учебников. Без зубрёжки. Без хаоса.
-            </span>
+          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-12">
+            Уроки, разговорная практика, словарь как Anki,
+            система прогресса и AI-фидбек.
+            Всё что нужно для перехода от понимания английского
+            к свободной речи.
           </p>
 
-          <div className="flex flex-col md:flex-row justify-center gap-4">
-            <Link href="/register" className="btn btn-primary">
+          <div className="flex flex-col md:flex-row justify-center gap-4 mb-8">
+
+            <Link
+              href="/register"
+              className="btn btn-primary text-lg px-8 py-4"
+            >
               Начать бесплатно
             </Link>
 
-            <a href="#how" className="btn">
-              Как это работает
+            <a
+              href="#pricing"
+              className="btn text-lg px-8 py-4"
+            >
+              Посмотреть тарифы
             </a>
+
           </div>
 
-          <p className="text-sm text-slate-500 mt-10">
-            Регистрация за 30 секунд • Доступ сразу
+          <p className="text-sm text-slate-500">
+            Без карты • Регистрация за 30 секунд
           </p>
 
         </div>
 
       </section>
 
-      {/* ================= TRUST ================= */}
-      <section className="container pb-40">
+      {/* STATS */}
 
-        <div className="grid md:grid-cols-5 gap-6 text-center text-sm text-slate-600">
+      <section className="container pb-28">
 
-          <div className="card">✓ CEFR уровень</div>
-          <div className="card">✓ AI уроки</div>
-          <div className="card">✓ Speaking практика</div>
-          <div className="card">✓ Vocabulary</div>
-          <div className="card">✓ Progress tracking</div>
+        <div className="grid md:grid-cols-3 gap-6">
+
+          <div className="card text-center">
+            <h3 className="text-4xl font-bold mb-2">
+              AI
+            </h3>
+
+            <p className="text-slate-600">
+              Персональные уроки под твой уровень
+            </p>
+          </div>
+
+          <div className="card text-center">
+            <h3 className="text-4xl font-bold mb-2">
+              CEFR
+            </h3>
+
+            <p className="text-slate-600">
+              Прогресс от A1 до C1
+            </p>
+          </div>
+
+          <div className="card text-center">
+            <h3 className="text-4xl font-bold mb-2">
+              80/20
+            </h3>
+
+            <p className="text-slate-600">
+              Только самые эффективные методы обучения
+            </p>
+          </div>
 
         </div>
 
       </section>
 
-      {/* ================= PROBLEM ================= */}
-      <section className="container py-44">
+      {/* PROBLEM */}
 
-        <h2 className="text-4xl font-bold text-center mb-6">
-          Ты уже учил английский.
-          <br />
-          Но не говоришь.
+      <section className="container py-32">
+
+        <h2 className="text-5xl font-bold text-center mb-6">
+          Знакомая ситуация?
         </h2>
 
-        <p className="text-center text-slate-500 max-w-2xl mx-auto mb-16">
-          Проблема не в знаниях — проблема в отсутствии системы практики речи.
+        <p className="text-center text-slate-600 max-w-2xl mx-auto mb-16">
+          Большинство людей учат английский годами,
+          но всё ещё не могут свободно говорить.
         </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
           <div className="card">
-            <h3 className="font-bold mb-2">Понимаешь контент</h3>
-            <p className="text-slate-600">YouTube и фильмы уже понятны.</p>
+
+            <div className="text-4xl mb-4">
+              🎬
+            </div>
+
+            <h3 className="font-bold text-xl mb-2">
+              Смотришь видео
+            </h3>
+
+            <p className="text-slate-600">
+              Понимаешь YouTube, фильмы и подкасты.
+            </p>
+
           </div>
 
           <div className="card">
-            <h3 className="font-bold mb-2">Но не говоришь</h3>
-            <p className="text-slate-600">Речь не активируется.</p>
+
+            <div className="text-4xl mb-4">
+              📚
+            </div>
+
+            <h3 className="font-bold text-xl mb-2">
+              Читаешь статьи
+            </h3>
+
+            <p className="text-slate-600">
+              Большинство текстов уже понятны.
+            </p>
+
           </div>
 
           <div className="card">
-            <h3 className="font-bold mb-2">Учишь годами</h3>
-            <p className="text-slate-600">Без реального прогресса.</p>
+
+            <div className="text-4xl mb-4">
+              🧠
+            </div>
+
+            <h3 className="font-bold text-xl mb-2">
+              Знаешь грамматику
+            </h3>
+
+            <p className="text-slate-600">
+              Теория давно изучена.
+            </p>
+
           </div>
 
-          <div className="card">
-            <h3 className="font-bold mb-2 text-red-500">Нет системы</h3>
-            <p className="text-slate-600">Только хаотичное обучение.</p>
+          <div className="card border-red-200">
+
+            <div className="text-4xl mb-4">
+              😔
+            </div>
+
+            <h3 className="font-bold text-xl mb-2 text-red-500">
+              Но не говоришь
+            </h3>
+
+            <p className="text-slate-600">
+              Теряешься в разговоре и переводишь каждую фразу в голове.
+            </p>
+
           </div>
 
         </div>
 
       </section>
 
-      {/* ================= WHY ================= */}
-      <section className="bg-white py-44">
+            {/* HOW IT WORKS */}
+
+      <section className="bg-white py-32">
 
         <div className="container">
 
-          <h2 className="text-4xl font-bold text-center mb-20">
-            Почему Sola работает
+          <h2 className="text-5xl font-bold text-center mb-6">
+            Как работает Sola
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <p className="text-center text-slate-600 max-w-3xl mx-auto mb-16">
+            Мы убрали всё лишнее и оставили только то,
+            что действительно помогает начать говорить.
+          </p>
+
+          <div className="grid md:grid-cols-4 gap-6">
 
             <div className="card">
-              <h3 className="font-bold mb-2">Только практика</h3>
-              <p className="text-slate-600">Ты сразу говоришь.</p>
+
+              <div className="text-4xl font-bold text-blue-600 mb-4">
+                01
+              </div>
+
+              <h3 className="font-bold text-xl mb-3">
+                Определи уровень
+              </h3>
+
+              <p>
+                Placement Test определяет твой уровень
+                и создаёт персональную траекторию обучения.
+              </p>
+
             </div>
 
             <div className="card">
-              <h3 className="font-bold mb-2">Персонально</h3>
-              <p className="text-slate-600">Под твой уровень.</p>
+
+              <div className="text-4xl font-bold text-blue-600 mb-4">
+                02
+              </div>
+
+              <h3 className="font-bold text-xl mb-3">
+                Проходи уроки
+              </h3>
+
+              <p>
+                AI создаёт уроки под твой уровень,
+                цели и интересы.
+              </p>
+
             </div>
 
             <div className="card">
-              <h3 className="font-bold mb-2">80/20</h3>
-              <p className="text-slate-600">Только полезный английский.</p>
+
+              <div className="text-4xl font-bold text-blue-600 mb-4">
+                03
+              </div>
+
+              <h3 className="font-bold text-xl mb-3">
+                Практикуй речь
+              </h3>
+
+              <p>
+                Пересказывай материал и учись
+                формулировать мысли на английском.
+              </p>
+
             </div>
 
             <div className="card">
-              <h3 className="font-bold mb-2">Фокус на речь</h3>
-              <p className="text-slate-600">Главная цель — говорить.</p>
+
+              <div className="text-4xl font-bold text-blue-600 mb-4">
+                04
+              </div>
+
+              <h3 className="font-bold text-xl mb-3">
+                Получай фидбек
+              </h3>
+
+              <p>
+                AI анализирует ошибки,
+                словарный запас и уровень речи.
+              </p>
+
             </div>
 
           </div>
@@ -133,194 +269,432 @@ export default function HomePage() {
 
       </section>
 
-      {/* ================= HOW ================= */}
-      <section id="how" className="container py-44">
+      {/* WHY SOLA */}
 
-        <h2 className="text-4xl font-bold text-center mb-20">
-          Как ты будешь учиться
-        </h2>
+      <section className="container py-32">
 
-        <div className="max-w-3xl mx-auto space-y-6">
+        <div className="max-w-5xl mx-auto text-center">
 
-          <div className="card">1. Определи уровень (CEFR тест)</div>
-          <div className="text-center text-slate-400">↓</div>
+          <h2 className="text-5xl font-bold mb-8">
+            Почему большинство людей
+            не могут заговорить?
+          </h2>
 
-          <div className="card">2. Получи персональные уроки</div>
-          <div className="text-center text-slate-400">↓</div>
-
-          <div className="card">3. Пересказывай и говори</div>
-          <div className="text-center text-slate-400">↓</div>
-
-          <div className="card">4. Получай AI фидбек</div>
-          <div className="text-center text-slate-400">↓</div>
-
-          <div className="card">5. Реальный прогресс</div>
+          <p className="text-xl text-slate-600 leading-relaxed">
+            Потому что они изучают английский через
+            бесконечную теорию, правила и упражнения.
+            Но разговорный английский развивается
+            только через регулярное понимание речи,
+            активное воспроизведение информации
+            и разговорную практику.
+          </p>
 
         </div>
 
       </section>
 
-      {/* ================= FEATURES ================= */}
-      <section className="container py-44">
+      {/* METHOD */}
 
-        <h2 className="text-4xl font-bold text-center mb-20">
-          Всё что нужно для прогресса
-        </h2>
+      <section className="bg-white py-32">
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="container">
 
-          <div className="card">AI Lessons</div>
-          <div className="card">Speaking Practice</div>
-          <div className="card">Vocabulary (Anki style)</div>
-          <div className="card">Retell System</div>
-          <div className="card">AI Feedback</div>
-          <div className="card">Progress System</div>
+          <div className="max-w-4xl mx-auto text-center mb-16">
+
+            <h2 className="text-5xl font-bold mb-8">
+              Система 80/20
+            </h2>
+
+            <p className="text-xl text-slate-600">
+              20% действий дают 80% результата.
+              Именно на них построено обучение в Sola.
+            </p>
+
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+
+            <div className="card">
+
+              <div className="text-5xl mb-4">
+                🎧
+              </div>
+
+              <h3 className="font-bold text-xl mb-3">
+                Listening
+              </h3>
+
+              <p>
+                Постоянное взаимодействие
+                с понятным английским.
+              </p>
+
+            </div>
+
+            <div className="card">
+
+              <div className="text-5xl mb-4">
+                🗣️
+              </div>
+
+              <h3 className="font-bold text-xl mb-3">
+                Retelling
+              </h3>
+
+              <p>
+                Пересказ заставляет мозг
+                самостоятельно строить речь.
+              </p>
+
+            </div>
+
+            <div className="card">
+
+              <div className="text-5xl mb-4">
+                📈
+              </div>
+
+              <h3 className="font-bold text-xl mb-3">
+                Consistency
+              </h3>
+
+              <p>
+                Небольшая практика каждый день
+                работает лучше марафонов раз в неделю.
+              </p>
+
+            </div>
+
+          </div>
 
         </div>
 
       </section>
 
-      {/* ================= PRICING ================= */}
-      <section id="pricing" className="container py-48">
+      {/* FEATURES */}
 
-        <h2 className="text-4xl font-bold text-center mb-20">
-          Тарифы
+      <section className="container py-32">
+
+        <h2 className="text-5xl font-bold text-center mb-6">
+          Всё необходимое для английского
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <p className="text-center text-slate-600 max-w-2xl mx-auto mb-16">
+          Один продукт вместо десяти разных сервисов.
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-6">
+
+          <div className="card">
+
+            <h3 className="font-bold text-2xl mb-3">
+              📚 AI Уроки
+            </h3>
+
+            <p>
+              Уроки генерируются специально под твой уровень,
+              интересы и цели.
+            </p>
+
+          </div>
+
+          <div className="card">
+
+            <h3 className="font-bold text-2xl mb-3">
+              🧠 Vocabulary
+            </h3>
+
+            <p>
+              Интервальные повторения по принципу Anki
+              для долгосрочного запоминания слов.
+            </p>
+
+          </div>
+
+          <div className="card">
+
+            <h3 className="font-bold text-2xl mb-3">
+              🎙 Speaking Practice
+            </h3>
+
+            <p>
+              Реальная разговорная практика,
+              а не бесконечные тесты.
+            </p>
+
+          </div>
+
+          <div className="card">
+
+            <h3 className="font-bold text-2xl mb-3">
+              📊 Progress System
+            </h3>
+
+            <p>
+              XP, streak, уровни и понятная шкала роста
+              от A1 до C1.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+            {/* PRICING */}
+
+      <section
+        id="pricing"
+        className="container py-36"
+      >
+
+        <div className="text-center mb-16">
+
+          <h2 className="text-5xl font-bold mb-6">
+            Выбери свой темп роста
+          </h2>
+
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            Все тарифы построены вокруг одной цели —
+            как можно быстрее привести тебя к свободному разговорному английскому.
+          </p>
+
+        </div>
+
+        <div className="grid lg:grid-cols-3 gap-8">
 
           {/* FREE */}
-          <div className="card">
-            <h3 className="font-bold text-xl">Free</h3>
-            <div className="text-4xl font-bold my-6">0 ₽</div>
 
-            <ul className="space-y-2 text-slate-600">
+          <div className="card">
+
+            <h3 className="text-2xl font-bold mb-4">
+              Free
+            </h3>
+
+            <div className="mb-6">
+              <span className="text-5xl font-bold">
+                0 ₽
+              </span>
+
+              <p className="text-slate-500 mt-2">
+                Навсегда бесплатно
+              </p>
+            </div>
+
+            <ul className="space-y-3 mb-8">
+
               <li>✓ 1 сессия в день</li>
-              <li>✓ 15 минут практики</li>
-              <li>✓ Placement test</li>
-              <li>✕ AI Speaking</li>
+              <li>✓ До 15 минут практики</li>
+              <li>✓ Placement Test</li>
+              <li>✓ Базовый словарь</li>
+
+              <li className="text-slate-400">
+                ✕ AI Speaking
+              </li>
+
+              <li className="text-slate-400">
+                ✕ Продвинутый словарь
+              </li>
+
+              <li className="text-slate-400">
+                ✕ Быстрый прогресс
+              </li>
+
             </ul>
+
+            <Link
+              href="/register"
+              className="btn w-full"
+            >
+              Начать
+            </Link>
+
           </div>
 
           {/* PRO */}
-          <div className="card border-2 border-blue-500 scale-105 shadow-lg">
 
-            <div className="text-sm text-blue-600 font-bold mb-2">
-              ⭐ РЕКОМЕНДУЕМЫЙ
+          <div className="card border-2 border-blue-500 relative scale-105">
+
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
+              САМЫЙ ПОПУЛЯРНЫЙ
             </div>
 
-            <h3 className="font-bold text-xl">Pro</h3>
+            <h3 className="text-2xl font-bold mb-4">
+              Pro
+            </h3>
 
-            <div className="flex items-center gap-3 my-6">
-              <span className="line-through text-slate-400">2990 ₽</span>
-              <span className="text-4xl font-bold">1490 ₽</span>
+            <div className="mb-6">
+
+              <div className="text-slate-400 line-through text-xl">
+                1990 ₽
+              </div>
+
+              <span className="text-5xl font-bold text-blue-600">
+                1490 ₽
+              </span>
+
+              <p className="text-slate-500 mt-2">
+                Для серьёзного прогресса
+              </p>
+
             </div>
 
-            <ul className="space-y-2 text-slate-600">
-              <li>✓ 3 сессии в день</li>
-              <li>✓ 45 минут практики</li>
+            <ul className="space-y-3 mb-8">
+
+              <li>✓ До 3 сессий в день</li>
+              <li>✓ До 60 минут практики</li>
+              <li>✓ Полный словарь</li>
               <li>✓ AI Speaking</li>
-              <li>✓ Быстрый прогресс</li>
+              <li>✓ AI Feedback</li>
+              <li>✓ Быстрый рост уровня</li>
+              <li>✓ Все основные функции</li>
+
             </ul>
 
-            <button className="btn btn-primary w-full mt-6">
+            <Link
+              href="/register"
+              className="btn btn-primary w-full"
+            >
               Выбрать Pro
-            </button>
+            </Link>
 
           </div>
 
           {/* INTENSIVE */}
+
           <div className="card">
 
-            <h3 className="font-bold text-xl">Intensive</h3>
-            <div className="text-4xl font-bold my-6">2990 ₽</div>
+            <h3 className="text-2xl font-bold mb-4">
+              Intensive
+            </h3>
 
-            <ul className="space-y-2 text-slate-600">
-              <li>✓ 5 сессий в день</li>
-              <li>✓ Максимальный прогресс</li>
-              <li>✓ Все функции</li>
+            <div className="mb-6">
+
+              <div className="text-slate-400 line-through text-xl">
+                3990 ₽
+              </div>
+
+              <span className="text-5xl font-bold">
+                2990 ₽
+              </span>
+
+              <p className="text-slate-500 mt-2">
+                Максимальный результат
+              </p>
+
+            </div>
+
+            <ul className="space-y-3 mb-8">
+
+              <li>✓ До 5 сессий в день</li>
+              <li>✓ До 120 минут практики</li>
+              <li>✓ Все возможности Pro</li>
+              <li>✓ Максимум разговорной практики</li>
+              <li>✓ Самый быстрый рост</li>
+              <li>✓ Полный доступ ко всему</li>
+
             </ul>
 
+            <Link
+              href="/register"
+              className="btn w-full"
+            >
+              Выбрать Intensive
+            </Link>
+
           </div>
 
         </div>
 
       </section>
 
-      {/* ================= FAQ ================= */}
-      <section className="container py-48">
+      {/* CTA */}
 
-        <h2 className="text-4xl font-bold text-center mb-20">
-          Частые вопросы
-        </h2>
+      <section className="container py-36">
 
-        <div className="max-w-3xl mx-auto space-y-6">
+        <div className="card text-center max-w-5xl mx-auto p-12">
 
-          <div className="card">
-            <h3 className="font-bold">Сколько нужно заниматься?</h3>
-            <p className="text-slate-600 mt-2">15–30 минут в день.</p>
-          </div>
+          <h2 className="text-5xl font-bold mb-6">
+            Через год ты всё ещё можешь
+            переводить предложения в голове.
+          </h2>
 
-          <div className="card">
-            <h3 className="font-bold">Подходит ли новичкам?</h3>
-            <p className="text-slate-600 mt-2">Да, от A1 до C1.</p>
-          </div>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-10">
+            Или уже свободно говорить на английском.
+            Выбор начинается сегодня.
+          </p>
 
-          <div className="card">
-            <h3 className="font-bold">Есть мобильное приложение?</h3>
-            <p className="text-slate-600 mt-2">Пока только веб.</p>
-          </div>
-
-          <div className="card">
-            <h3 className="font-bold">Когда оплата?</h3>
-            <p className="text-slate-600 mt-2">Сейчас ранний доступ.</p>
-          </div>
+          <Link
+            href="/register"
+            className="btn btn-primary text-lg px-10 py-4"
+          >
+            Начать бесплатно
+          </Link>
 
         </div>
 
       </section>
 
-      {/* ================= CTA ================= */}
-      <section className="container py-48 text-center">
+      {/* FOOTER */}
 
-        <h2 className="text-5xl font-bold mb-10">
-          Начни сегодня
-        </h2>
+      <footer className="border-t py-20">
 
-        <Link href="/register" className="btn btn-primary">
-          Начать бесплатно
-        </Link>
+        <div className="container">
 
-      </section>
+          <div className="grid md:grid-cols-3 gap-12">
 
-      {/* ================= FOOTER ================= */}
-      <footer className="border-t py-32">
+            <div>
 
-        <div className="container grid md:grid-cols-4 gap-12">
+              <h3 className="text-3xl font-bold text-blue-600 mb-4">
+                Sola
+              </h3>
 
-          <div>
-            <h3 className="text-2xl font-bold text-blue-600">Sola</h3>
-            <p className="text-slate-500 mt-2">
-              AI платформа для разговорного английского.
-            </p>
+              <p className="text-slate-500 leading-relaxed">
+                AI-платформа для развития
+                разговорного английского.
+              </p>
+
+            </div>
+
+            <div>
+
+              <h4 className="font-bold text-lg mb-4">
+                Продукт
+              </h4>
+
+              <div className="space-y-3 text-slate-600">
+
+                <p>Уроки</p>
+                <p>Vocabulary</p>
+                <p>AI Speaking</p>
+                <p>Тарифы</p>
+
+              </div>
+
+            </div>
+
+            <div>
+
+              <h4 className="font-bold text-lg mb-4">
+                Поддержка
+              </h4>
+
+              <a
+                href="https://t.me/yourtelegram"
+                target="_blank"
+                className="text-blue-600 hover:underline"
+              >
+                Связаться с нами
+              </a>
+
+            </div>
+
           </div>
 
-          <div>
-            <h4 className="font-bold mb-3">Продукт</h4>
-            <p className="text-slate-600">Уроки</p>
-            <p className="text-slate-600">Speaking</p>
-            <p className="text-slate-600">Vocabulary</p>
+          <div className="border-t mt-12 pt-8 text-sm text-slate-500 text-center">
+            © 2026 Sola. All rights reserved.
           </div>
 
-          <div>
-            <h4 className="font-bold mb-3">Поддержка</h4>
-            <p className="text-slate-600">Telegram</p>
-          </div>
-
-        </div>
-
-        <div className="container mt-12 text-center text-slate-500">
-          © 2026 Sola
         </div>
 
       </footer>
