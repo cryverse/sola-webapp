@@ -36,8 +36,7 @@ export default function RegisterPage() {
           });
       }
 
-      window.location.href =
-        "/welcome";
+      window.location.href = "/onboarding/welcome";
     }
   }
 

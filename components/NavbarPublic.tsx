@@ -11,32 +11,20 @@ export default function NavbarPublic() {
           Sola
         </a>
 
-        <nav className="hidden md:flex items-center gap-8 text-sm text-slate-700">
-
-          <a href="#how">
-            How it works
-          </a>
-
-          <a href="#pricing">
-            Pricing
-          </a>
-
-        </nav>
-
         <div className="flex items-center gap-3">
 
           <a
             href="/login"
             className="btn"
           >
-            Login
+            Войти
           </a>
 
           <a
             href="/register"
             className="btn btn-primary"
           >
-            Start free
+            Зарегистрироваться
           </a>
 
         </div>

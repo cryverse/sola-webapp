@@ -10,10 +10,6 @@ export default function HomePage() {
 
         <div className="max-w-5xl mx-auto">
 
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-8 text-sm text-slate-600">
-            🚀 AI-платформа для развития разговорного английского
-          </div>
-
           <h1 className="text-6xl md:text-8xl font-bold leading-tight mb-8">
             Перестань учить
             <br />
@@ -680,7 +676,7 @@ export default function HomePage() {
               </h4>
 
               <a
-                href="https://t.me/yourtelegram"
+                href="https://t.me/kaihavenne"
                 target="_blank"
                 className="text-blue-600 hover:underline"
               >

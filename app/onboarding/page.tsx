@@ -4,48 +4,67 @@ import { useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { createInitialUserData } from "./actions";
 
+const goals = [
+  { id: "work", icon: "💼", title: "Работа", description: "Получить новую работу или повышение" },
+  { id: "study", icon: "🎓", title: "Учёба", description: "Университет, экзамены и образование" },
+  { id: "business", icon: "💰", title: "Бизнес", description: "Переговоры, проекты и предпринимательство" },
+  { id: "travel", icon: "✈️", title: "Путешествия", description: "Свободно говорить за границей" },
+  { id: "relocation", icon: "🌍", title: "Переезд", description: "Подготовка к жизни в другой стране" },
+  { id: "communication", icon: "💬", title: "Для себя", description: "Смотреть фильмы, книги и общение" },
+];
+
+const interests = [
+  "💼 Бизнес",
+  "🚀 Стартапы",
+  "🤖 Искусственный интеллект",
+  "💸 Финансы",
+  "📈 Инвестиции",
+  "💻 Программирование",
+  "🎮 Игры",
+  "🎬 Фильмы",
+  "🎵 Музыка",
+  "⚽ Спорт",
+  "✈️ Путешествия",
+  "🧠 Психология",
+  "📚 История",
+  "🔬 Наука",
+  "🏋️ Саморазвитие",
+  "🌎 Политика",
+];
+
 export default function OnboardingPage() {
-  const [goal, setGoal] = useState("");
-  const [minutes, setMinutes] = useState("");
+  const [goal, setGoal] = useState<string | null>(null);
+  const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
+  const [minutes, setMinutes] = useState<number | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const interests = [
-    "Business",
-    "Startups",
-    "Technology",
-    "Finance",
-    "Travel",
-    "Sports",
-    "Psychology",
-    "Self Development",
-    "Science",
-    "History",
-  ];
+  function toggleInterest(item: string) {
+    setSelectedInterests((prev) => {
+      const exists = prev.includes(item);
 
-  const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
-
-  function toggleInterest(interest: string) {
-    if (selectedInterests.includes(interest)) {
-      setSelectedInterests(
-        selectedInterests.filter((i) => i !== interest)
-      );
-    } else {
-      if (selectedInterests.length < 5) {
-        setSelectedInterests([
-          ...selectedInterests,
-          interest,
-        ]);
+      if (exists) {
+        return prev.filter((i) => i !== item);
       }
-    }
+
+      if (prev.length >= 5) return prev;
+
+      return [...prev, item];
+    });
   }
 
+  const isValid =
+    goal &&
+    selectedInterests.length > 0 &&
+    minutes !== null &&
+    minutes > 0;
+
   async function handleContinue() {
+    if (!isValid) return;
+
     try {
       setLoading(true);
 
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
+      const { data: { user } } = await supabase.auth.getUser();
 
       if (!user) {
         alert("User not found");
@@ -58,11 +77,12 @@ export default function OnboardingPage() {
           user_id: user.id,
           goal,
           interests: selectedInterests,
-          daily_minutes: Number(minutes),
+          native_language: "Russian",
+          target_language: "English",
+          daily_minutes: minutes,
         });
 
       if (error) {
-        console.error(error);
         alert(error.message);
         return;
       }
@@ -70,94 +90,182 @@ export default function OnboardingPage() {
       await createInitialUserData(user.id);
 
       window.location.href = "/placement-test";
-    } catch (err) {
-      console.error(err);
-      alert("Something went wrong");
+    } catch (e) {
+      console.error(e);
+      alert("Something went wrong.");
     } finally {
       setLoading(false);
     }
   }
 
   return (
-    <main className="max-w-3xl mx-auto p-8">
+    <main className="min-h-screen bg-slate-50">
+      <div className="max-w-6xl mx-auto px-6 py-12">
 
-      <h1 className="text-4xl font-bold mb-8">
-        Welcome to Sola
-      </h1>
-
-      <div className="space-y-8">
-
-        <div>
-          <h2 className="font-semibold mb-3">
-            Why are you learning English?
-          </h2>
-
-          <select
-            className="border p-3 rounded w-full"
-            value={goal}
-            onChange={(e) => setGoal(e.target.value)}
-          >
-            <option value="">Choose</option>
-            <option>Work</option>
-            <option>Study</option>
-            <option>Business</option>
-            <option>Travel</option>
-            <option>Relocation</option>
-            <option>Communication</option>
-          </select>
+        {/* LOGO */}
+        <div className="flex justify-center mb-10">
+          <div className="text-4xl font-bold text-blue-600">Sola</div>
         </div>
 
-        <div>
-          <h2 className="font-semibold mb-3">
-            Interests (max 5)
-          </h2>
+        {/* PROGRESS */}
+        <div className="max-w-2xl mx-auto mb-12">
+          <div className="flex justify-between text-sm text-slate-500 mb-3">
+            <span>Настройка обучения</span>
+            <span>Шаг 1 из 3</span>
+          </div>
 
-          <div className="flex flex-wrap gap-2">
-            {interests.map((interest) => (
+          <div className="h-3 rounded-full bg-slate-200 overflow-hidden">
+            <div className="h-full w-1/3 bg-blue-600 rounded-full transition-all" />
+          </div>
+        </div>
+
+        {/* HERO */}
+        <div className="text-center mb-14">
+          <h1 className="text-5xl font-bold mb-5">
+            Добро пожаловать
+            <br />
+            в Sola 👋
+          </h1>
+
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-8">
+            Ответь на несколько вопросов.
+            <br />
+            Мы полностью настроим обучение специально под тебя.
+          </p>
+        </div>
+
+        {/* STEP 1 */}
+        <div className="bg-white rounded-[32px] shadow-sm border border-slate-200 p-10">
+          <div className="mb-10">
+            <div className="inline-flex px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm">
+              Шаг 1
+            </div>
+
+            <h2 className="text-3xl font-bold mt-5">
+              Зачем ты изучаешь английский?
+            </h2>
+
+            <p className="text-slate-500 mt-3 text-lg">
+              От этого будут зависеть темы уроков и упражнения
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-5">
+            {goals.map((item) => (
               <button
-                key={interest}
-                type="button"
-                onClick={() => toggleInterest(interest)}
-                className={`border rounded px-4 py-2 ${
-                  selectedInterests.includes(interest)
-                    ? "bg-black text-white"
-                    : ""
-                }`}
+                key={item.id}
+                onClick={() => setGoal(item.id)}
+                className={`rounded-3xl border p-7 text-left transition-all duration-200 hover:scale-[1.02]
+                  ${goal === item.id
+                    ? "border-blue-600 bg-blue-50 shadow-lg"
+                    : "border-slate-200 hover:border-blue-300 bg-white"
+                  }`}
               >
-                {interest}
+                <div className="text-4xl mb-5">{item.icon}</div>
+                <h3 className="font-bold text-xl mb-2">{item.title}</h3>
+                <p className="text-slate-500 leading-7">{item.description}</p>
               </button>
             ))}
           </div>
         </div>
 
-        <div>
-          <h2 className="font-semibold mb-3">
-            Daily study time
-          </h2>
+        {/* STEP 2 */}
+        <div className="bg-white rounded-[32px] shadow-sm border border-slate-200 p-10 mt-10">
+          <div className="mb-10">
+            <div className="inline-flex px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm">
+              Шаг 2
+            </div>
 
-          <select
-            className="border p-3 rounded w-full"
-            value={minutes}
-            onChange={(e) => setMinutes(e.target.value)}
-          >
-            <option value="">Choose</option>
-            <option value="15">15 min</option>
-            <option value="30">30 min</option>
-            <option value="60">60 min</option>
-            <option value="120">120+ min</option>
-          </select>
+            <h2 className="text-3xl font-bold mt-5">
+              Что тебе интересно?
+            </h2>
+
+            <p className="text-slate-500 mt-3 text-lg">
+              Мы будем использовать это для примеров
+            </p>
+
+            <div className="mt-4 text-sm text-slate-500">
+              Выбрано:{" "}
+              <span className="font-semibold text-blue-600">
+                {selectedInterests.length}/5
+              </span>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            {interests.map((item) => {
+              const active = selectedInterests.includes(item);
+
+              return (
+                <button
+                  key={item}
+                  onClick={() => toggleInterest(item)}
+                  className={`px-5 py-3 rounded-full text-sm font-medium transition-all border
+                    ${active
+                      ? "bg-blue-600 text-white border-blue-600 shadow-md scale-[1.03]"
+                      : "bg-slate-50 text-slate-700 border-slate-200 hover:border-blue-400 hover:bg-blue-50"
+                    }`}
+                >
+                  {item}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
-        <button
-          disabled={loading}
-          className="border rounded p-4 w-full"
-          onClick={handleContinue}
-        >
-          {loading ? "Saving..." : "Continue"}
-        </button>
+        {/* STEP 3 */}
+        <div className="bg-white rounded-[32px] shadow-sm border border-slate-200 p-10 mt-10">
+          <div className="mb-10">
+            <div className="inline-flex px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm">
+              Шаг 3
+            </div>
+
+            <h2 className="text-3xl font-bold mt-5">
+              Сколько времени ты готов заниматься в день?
+            </h2>
+
+            <p className="text-slate-500 mt-3 text-lg">
+              Это влияет на интенсивность программы
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[15, 30, 60, 120].map((val) => (
+              <button
+                key={val}
+                onClick={() => setMinutes(val)}
+                className={`py-5 rounded-2xl border font-bold text-lg transition-all
+                  ${minutes === val
+                    ? "bg-blue-600 text-white border-blue-600 shadow-lg scale-[1.03]"
+                    : "bg-white border-slate-200 hover:border-blue-400 hover:bg-blue-50"
+                  }`}
+              >
+                {val} мин
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* CONTINUE */}
+        <div className="mt-12 text-center">
+          <button
+            onClick={handleContinue}
+            disabled={!isValid || loading}
+            className={`w-full max-w-2xl mx-auto py-5 rounded-2xl text-white font-bold text-xl transition-all
+              ${!isValid || loading
+                ? "bg-slate-300 cursor-not-allowed"
+                : "bg-blue-600 hover:bg-blue-700 shadow-xl hover:scale-[1.01]"
+              }`}
+          >
+            {loading ? "Сохранение..." : "Continue →"}
+          </button>
+
+          <p className="text-sm text-slate-500 mt-5">
+            Placement test займет примерно 25–30 минут
+          </p>
+        </div>
 
       </div>
-
     </main>
   );
 }
