@@ -93,7 +93,7 @@ export default function HomePage() {
 
       {/* PROBLEM */}
 
-      <section className="container py-32">
+      <section className="container pt-48 pb-36">
 
         <h2 className="text-5xl font-bold text-center mb-6">
           Знакомая ситуация?
