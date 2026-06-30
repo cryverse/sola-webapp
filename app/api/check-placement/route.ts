@@ -7,50 +7,55 @@ const openai = new OpenAI({
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
-
-    const answers = body.answers;
+    const { answers } = await req.json();
 
     const response = await openai.responses.create({
       model: "gpt-5.4-mini",
       input: `
-You are a CEFR English examiner.
+Ты экзаменатор CEFR.
 
-Analyze the student's answers.
-
-Return ONLY valid JSON.
+Верни ТОЛЬКО JSON БЕЗ ТЕКСТА И БЕЗ MARKDOWN:
 
 {
-  "estimated_cefr":"A1",
-  "estimated_sublevel":"A1.1",
-  "confidence_score":50,
-  "reason":""
+  "estimated_cefr": "A1",
+  "estimated_sublevel": "A1.1",
+  "confidence_score": 50,
+  "reason": "кратко на русском"
 }
 
-Student answers:
+Ответь строго по формату.
 
+Ответы студента:
 ${JSON.stringify(answers)}
 `,
     });
 
-    const result = JSON.parse(
-      response.output_text
-    );
+    const raw = response.output_text;
+
+    let result;
+
+    try {
+      result = JSON.parse(raw);
+    } catch (e) {
+      console.log("RAW:", raw);
+
+      return NextResponse.json({
+        estimated_cefr: "A1",
+        estimated_sublevel: "A1.1",
+        confidence_score: 50,
+        reason: "Ошибка парсинга ответа AI",
+      });
+    }
 
     return NextResponse.json(result);
   } catch (error) {
     console.error(error);
 
-    return NextResponse.json(
-      {
-        estimated_cefr: "A1",
-        estimated_sublevel: "A1.1",
-        confidence_score: 50,
-        reason: "Failed",
-      },
-      {
-        status: 500,
-      }
-    );
+    return NextResponse.json({
+      estimated_cefr: "A1",
+      estimated_sublevel: "A1.1",
+      confidence_score: 50,
+      reason: "Ошибка сервера",
+    });
   }
 }

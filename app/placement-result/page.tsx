@@ -4,19 +4,17 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 
 export default function PlacementResultPage() {
-  const [level, setLevel] = useState("");
+  const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    loadResult();
+    load();
   }, []);
 
-  async function loadResult() {
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+  async function load() {
+    const { data: userData } = await supabase.auth.getUser();
 
-    if (!user) {
+    if (!userData?.user) {
       window.location.href = "/login";
       return;
     }
@@ -24,55 +22,54 @@ export default function PlacementResultPage() {
     const { data } = await supabase
       .from("placement_tests")
       .select("*")
-      .eq("user_id", user.id)
+      .eq("user_id", userData.user.id)
       .order("created_at", { ascending: false })
       .limit(1)
       .single();
 
-    if (data) {
-      setLevel(data.estimated_cefr);
-    }
-
+    setData(data);
     setLoading(false);
   }
 
   if (loading) {
     return (
-      <main className="max-w-3xl mx-auto p-8">
-        Loading...
-      </main>
+      <div className="min-h-screen flex items-center justify-center">
+        Загрузка...
+      </div>
     );
   }
 
   return (
-    <main className="max-w-3xl mx-auto p-8">
+    <main className="min-h-screen bg-slate-50 flex items-center justify-center px-6">
 
-      <div className="border rounded-2xl p-10 text-center">
+      <div className="max-w-2xl w-full bg-white border rounded-2xl p-10 text-center shadow-sm">
 
-        <h1 className="text-4xl font-bold mb-6">
-          Placement Complete
+        <h1 className="text-3xl font-bold mb-4">
+          Ваш результат готов
         </h1>
 
-        <p className="text-slate-500 mb-4">
-          Your estimated English level:
+        <p className="text-slate-500 mb-6">
+          Определённый уровень английского:
         </p>
 
-        <div className="text-6xl font-bold mb-8">
-          {level}
+        <div className="text-6xl font-bold mb-6 text-blue-600">
+          {data?.estimated_cefr}
         </div>
 
-        <p className="mb-8">
-          Sola will now personalize your lessons,
-          vocabulary and speaking sessions.
+        <div className="bg-slate-50 border rounded-xl p-4 mb-6 text-left">
+          <p className="font-semibold mb-2">Анализ:</p>
+          <p className="text-slate-600">{data?.reason}</p>
+        </div>
+
+        <p className="text-sm text-slate-400 mb-6">
+          Уверенность AI: {data?.confidence_score}%
         </p>
 
         <button
-          onClick={() =>
-            (window.location.href = "/dashboard")
-          }
-          className="border rounded-xl px-8 py-4"
+          onClick={() => (window.location.href = "/dashboard")}
+          className="w-full py-4 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
         >
-          Continue To Dashboard
+          Перейти на главную страницу
         </button>
 
       </div>

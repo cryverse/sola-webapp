@@ -285,26 +285,26 @@ export default function OnboardingPage() {
       </div>
     </div>
 
-    {/* CONTINUE */}
-    <div className="mt-auto text-center">
-      <button
-        onClick={handleContinue}
-        disabled={!isValid || loading}
-        className={`w-full max-w-2xl mx-auto py-5 rounded-2xl text-white font-bold text-xl transition-all
-          ${
-            !isValid || loading
-              ? "bg-slate-300 cursor-not-allowed"
-              : "bg-blue-600 hover:bg-blue-700 shadow-xl hover:scale-[1.01]"
-          }
-        `}
-      >
-        {loading ? "Сохранение..." : "Continue →"}
-      </button>
+{/* CONTINUE */}
+<div className="mt-auto text-center">
+  <button
+    onClick={handleContinue}
+    disabled={!isValid || loading}
+    className={`w-full max-w-2xl mx-auto py-5 rounded-2xl text-white font-bold text-xl transition-all
+      ${
+        !isValid || loading
+          ? "bg-slate-300 cursor-not-allowed"
+          : "bg-blue-600 hover:bg-blue-700 shadow-xl hover:scale-[1.01]"
+      }
+    `}
+  >
+    {loading ? "Сохранение..." : "Продолжить →"}
+  </button>
 
-      <p className="text-sm text-slate-500 mt-5">
-        Placement test займет примерно 25–30 минут
-      </p>
-    </div>
+  <p className="text-sm text-slate-500 mt-5">
+    Плейсмент-тест займет примерно 25–30 минут
+  </p>
+</div>
   </div>
 )}
       </div>
