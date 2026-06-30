@@ -134,6 +134,8 @@ export default function PlacementIntroPage() {
           Начать тест
         </Link>
 
+        <div className="h-40" />
+
       </div>
 
     </main>
