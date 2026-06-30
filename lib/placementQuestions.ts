@@ -33,7 +33,7 @@ export const placementQuestions = [
     id: 4,
     level: "A1",
     type: "listening",
-    audio: "/public1/audio/a1-1.mp3",
+    audio: "public1/audio/a1-1.mp3",
     question: "Where does Anna work?",
     options: [
       "In a hospital",
