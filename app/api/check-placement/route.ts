@@ -12,38 +12,55 @@ export async function POST(req: Request) {
     const response = await openai.responses.create({
       model: "gpt-5.4-mini",
       input: `
-Ты экзаменатор CEFR.
+You are a strict CEFR examiner.
 
-Верни ТОЛЬКО JSON БЕЗ ТЕКСТА И БЕЗ MARKDOWN:
+Return ONLY valid JSON. No markdown. No extra text.
 
+Schema:
 {
-  "estimated_cefr": "A1",
-  "estimated_sublevel": "A1.1",
-  "confidence_score": 50,
-  "reason": "кратко на русском"
+  "estimated_cefr": "A1 | A2 | B1 | B2 | C1",
+  "estimated_sublevel": "string",
+  "confidence_score": number,
+  "summary": "short explanation in Russian",
+  "strengths": ["max 5 items"],
+  "weaknesses": ["max 5 items"],
+  "next_level": "A2 or B1 etc",
+  "hours_to_next_level": "25-40 hours"
 }
 
-Ответь строго по формату.
+Rules:
+- Be strict
+- No formatting
+- No comments
+- JSON only
 
-Ответы студента:
+Student answers:
 ${JSON.stringify(answers)}
-`,
+      `.trim(),
     });
 
-    const raw = response.output_text;
+    const raw = response.output_text?.trim();
+
+    if (!raw) {
+      throw new Error("Empty response from OpenAI");
+    }
 
     let result;
 
     try {
       result = JSON.parse(raw);
     } catch (e) {
-      console.log("RAW:", raw);
+      console.log("RAW RESPONSE:", raw);
 
       return NextResponse.json({
         estimated_cefr: "A1",
         estimated_sublevel: "A1.1",
         confidence_score: 50,
-        reason: "Ошибка парсинга ответа AI",
+        summary: "Ошибка парсинга ответа AI",
+        strengths: [],
+        weaknesses: [],
+        next_level: "A2",
+        hours_to_next_level: "25-40 часов",
       });
     }
 
@@ -55,7 +72,11 @@ ${JSON.stringify(answers)}
       estimated_cefr: "A1",
       estimated_sublevel: "A1.1",
       confidence_score: 50,
-      reason: "Ошибка сервера",
+      summary: "Ошибка сервера",
+      strengths: [],
+      weaknesses: [],
+      next_level: "A2",
+      hours_to_next_level: "25-40 часов",
     });
   }
 }
