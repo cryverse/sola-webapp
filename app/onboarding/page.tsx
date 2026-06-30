@@ -239,7 +239,7 @@ export default function OnboardingPage() {
       </div>
     </div>
 
-<div className="h-40" />
+<div className="h-32" />
 
     {/* BUTTON */}
     <div className="mt-auto text-center">
@@ -288,8 +288,6 @@ export default function OnboardingPage() {
         ))}
       </div>
     </div>
-
-<div className="h-40" />
 
     {/* CONTINUE */}
     <div className="mt-auto text-center">
