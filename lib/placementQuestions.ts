@@ -33,7 +33,7 @@ export const placementQuestions = [
     id: 4,
     level: "A1",
     type: "listening",
-    audio: "public1/audio/a1-1.mp3",
+    audio: "/audio/a1-2.mp3",
     question: "Where does Anna work?",
     options: [
       "In a hospital",
@@ -81,7 +81,7 @@ export const placementQuestions = [
     id: 9,
     level: "A2",
     type: "listening",
-    audio: "/public1/audio/a2-1.mp3",
+    audio: "/audio/a2-2.mp3",
     question: "What did they do after shopping?",
     options: [
       "Went to work",
@@ -129,7 +129,7 @@ export const placementQuestions = [
     id: 14,
     level: "B1",
     type: "listening",
-    audio: "/public1/audio/b1-1.mp3",
+    audio: "/public1/audio/b1-2.mp3",
     question: "Why was Mark tired?",
     options: [
       "He studied all night",
@@ -187,7 +187,7 @@ export const placementQuestions = [
     id: 19,
     level: "B2",
     type: "listening",
-    audio: "/public1/audio/b2-1.mp3",
+    audio: "/public1/audio/b2-2.mp3",
     question: "What happened?",
     options: [
       "The match was cancelled",
@@ -240,7 +240,7 @@ export const placementQuestions = [
     id: 24,
     level: "C1",
     type: "listening",
-    audio: "/public1/audio/c1-1.mp3",
+    audio: "/public1/audio/c1-2.mp3",
     question: "Who is mainly affected?",
     options: [
       "Large corporations",

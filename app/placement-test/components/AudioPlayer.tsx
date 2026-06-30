@@ -13,18 +13,24 @@ export default function AudioPlayer({ src }: Props) {
   function togglePlay() {
     if (!audioRef.current) return;
 
-    if (playing) {
-      audioRef.current.pause();
-      setPlaying(false);
-    } else {
+    if (audioRef.current.paused) {
       audioRef.current.play();
-      setPlaying(true);
+    } else {
+      audioRef.current.pause();
     }
   }
 
   return (
     <div className="w-full p-4 border rounded-xl bg-white mb-6">
-      <audio ref={audioRef} src={src} />
+
+      <audio
+        ref={audioRef}
+        src={src}
+        preload="auto"
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
+        onEnded={() => setPlaying(false)}
+      />
 
       <button
         onClick={togglePlay}
