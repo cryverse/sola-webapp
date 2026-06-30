@@ -20,6 +20,16 @@ export default function QuestionCard({
   onSelect,
   onTextChange,
 }: Props) {
+  if (!question) {
+    return (
+      <div className="w-full p-6 border rounded-xl text-center text-red-500">
+        Question not found
+      </div>
+    );
+  }
+
+  const options = question.options ?? [];
+
   return (
     <div className="w-full border rounded-2xl p-6 bg-white shadow-sm">
 
@@ -28,35 +38,53 @@ export default function QuestionCard({
         {question.question}
       </h2>
 
-      {/* GRAMMAR / VOCAB */}
+      {/* GRAMMAR / VOCABULARY */}
       {(question.type === "grammar" ||
         question.type === "vocabulary") && (
-        <div>
-          {question.options?.map((opt, i) => (
-            <OptionButton
-              key={i}
-              text={opt}
-              selected={selected === i}
-              onClick={() => onSelect(i)}
-            />
-          ))}
+        <div className="space-y-3">
+          {options.length > 0 ? (
+            options.map((opt, i) => (
+              <OptionButton
+                key={i}
+                text={opt}
+                selected={selected === i}
+                onClick={() => onSelect(i)}
+              />
+            ))
+          ) : (
+            <p className="text-slate-400">
+              No options available
+            </p>
+          )}
         </div>
       )}
 
       {/* LISTENING */}
       {question.type === "listening" && (
-        <>
-          <AudioPlayer src={question.audio || ""} />
+        <div className="space-y-4">
+          {question.audio ? (
+            <AudioPlayer src={question.audio} />
+          ) : (
+            <p className="text-slate-400">
+              No audio available
+            </p>
+          )}
 
-          {question.options?.map((opt, i) => (
-            <OptionButton
-              key={i}
-              text={opt}
-              selected={selected === i}
-              onClick={() => onSelect(i)}
-            />
-          ))}
-        </>
+          {options.length > 0 ? (
+            options.map((opt, i) => (
+              <OptionButton
+                key={i}
+                text={opt}
+                selected={selected === i}
+                onClick={() => onSelect(i)}
+              />
+            ))
+          ) : (
+            <p className="text-slate-400">
+              No options available
+            </p>
+          )}
+        </div>
       )}
 
       {/* WRITING */}
@@ -66,6 +94,7 @@ export default function QuestionCard({
           onChange={onTextChange}
         />
       )}
+
     </div>
   );
 }
