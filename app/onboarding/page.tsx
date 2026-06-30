@@ -100,8 +100,8 @@ export default function OnboardingPage() {
   }
 
   return (
-    <main className="h-screen bg-slate-50 flex items-center justify-center overflow-hidden">
-      <div className="w-full max-w-4xl px-6">
+    <main className="min-h-screen bg-slate-50 flex justify-center py-10">
+      <div className="w-full max-w-4xl px-6 flex flex-col">
 
         {/* LOGO */}
         <div className="flex justify-center mb-10">
@@ -123,7 +123,7 @@ export default function OnboardingPage() {
 
 <div className="w-full max-w-4xl"></div>
         {/* HERO */}
-        <div className="text-center mb-14">
+        <div className="text-center mb-6">
           <h1 className="text-5xl font-bold mb-5">
             Добро пожаловать
             <br />
@@ -141,7 +141,7 @@ export default function OnboardingPage() {
 {/* {step === 1 && (
   <div> */}
   {step === 1 && (
-  <div className="h-[420px] flex flex-col justify-between">
+  <div className="w-full flex flex-col justify-between">
     {/* STEP 1 */}
     <div className="bg-white rounded-[32px] shadow-sm border border-slate-200 p-10">
       <div className="mb-10">
@@ -193,7 +193,7 @@ export default function OnboardingPage() {
 {/* {step === 2 && (
   <div> */}
   {step === 2 && (
-  <div className="h-[420px] flex flex-col justify-between">
+  <div className="w-full flex flex-col justify-between">
     {/* STEP 2 */}
     <div className="bg-white rounded-[32px] shadow-sm border border-slate-200 p-10 mt-10">
       <div className="mb-10">
@@ -252,7 +252,7 @@ export default function OnboardingPage() {
 )}
 
 {step === 3 && (
-  <div className="h-[420px] flex flex-col justify-between">
+  <div className="w-full flex flex-col justify-between">
     {/* STEP 3 */}
     <div className="bg-white rounded-[32px] shadow-sm border border-slate-200 p-10 mt-10">
       <div className="mb-10">
