@@ -111,7 +111,6 @@ export default function OnboardingPage() {
         {/* PROGRESS */}
         <div className="max-w-2xl mx-auto mb-12">
           <div className="flex justify-between text-sm text-slate-500 mb-3">
-            <span>Настройка обучения</span>
             <span>Шаг {step} из 3</span>
           </div>
 
