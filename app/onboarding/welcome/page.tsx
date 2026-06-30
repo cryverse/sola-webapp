@@ -15,10 +15,10 @@ export default function WelcomePage() {
             Определим ваш уровень английского
           </h1>
 
-          <p className="text-xl text-slate-600 leading-8">
+          {/* <p className="text-xl text-slate-600 leading-8">
             Это займёт около 25–30 минут.
             После теста мы подберём для вас персональную программу обучения.
-          </p>
+          </p> */}
         </div>
 
         {/* CARDS */}
@@ -57,8 +57,8 @@ export default function WelcomePage() {
 
           <div className="space-y-3 text-slate-600">
             <p>• Тест занимает около <b>25–30 минут</b></p>
-            <p>• Лучше проходить без переводчика</p>
             <p>• Сложность постепенно увеличивается</p>
+            <p>• После теста мы подберем для вас персональную систему обучения</p>
             <p>• Результат можно будет пересдать позже</p>
           </div>
         </div>
@@ -72,9 +72,6 @@ export default function WelcomePage() {
             Начать тест →
           </Link>
 
-          <p className="text-sm text-slate-500 mt-5">
-            Это займёт всего несколько минут
-          </p>
         </div>
 
       </div>
