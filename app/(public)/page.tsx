@@ -6,6 +6,8 @@ export default function HomePage() {
 
       {/* HERO */}
 
+<div className="h-40" />
+
       <section className="container py-36 text-center">
 
         <div className="max-w-5xl mx-auto">
@@ -26,6 +28,8 @@ export default function HomePage() {
           </p>
 
           <div className="flex flex-col md:flex-row justify-center gap-4 mb-8">
+
+<div className="h-40" />
 
             <Link
               href="/register"
@@ -51,47 +55,9 @@ export default function HomePage() {
 
       </section>
 
-      {/* STATS */}
-
-      <section className="container pb-28">
-
-        <div className="grid md:grid-cols-3 gap-6">
-
-          <div className="card text-center">
-            <h3 className="text-4xl font-bold mb-2">
-              AI
-            </h3>
-
-            <p className="text-slate-600">
-              Персональные уроки под твой уровень
-            </p>
-          </div>
-
-          <div className="card text-center">
-            <h3 className="text-4xl font-bold mb-2">
-              CEFR
-            </h3>
-
-            <p className="text-slate-600">
-              Прогресс от A1 до C1
-            </p>
-          </div>
-
-          <div className="card text-center">
-            <h3 className="text-4xl font-bold mb-2">
-              80/20
-            </h3>
-
-            <p className="text-slate-600">
-              Только самые эффективные методы обучения
-            </p>
-          </div>
-
-        </div>
-
-      </section>
-
       {/* PROBLEM */}
+
+<div className="h-40" />
 
       <section className="container pt-48 pb-36">
 
@@ -175,6 +141,8 @@ export default function HomePage() {
       </section>
 
             {/* HOW IT WORKS */}
+
+<div className="h-40" />
 
       <section className="bg-white py-32">
 
@@ -267,6 +235,8 @@ export default function HomePage() {
 
       {/* WHY SOLA */}
 
+<div className="h-40" />
+
       <section className="container py-32">
 
         <div className="max-w-5xl mx-auto text-center">
@@ -290,6 +260,8 @@ export default function HomePage() {
       </section>
 
       {/* METHOD */}
+
+<div className="h-40" />
 
       <section className="bg-white py-32">
 
@@ -369,6 +341,8 @@ export default function HomePage() {
 
       {/* FEATURES */}
 
+<div className="h-40" />
+
       <section className="container py-32">
 
         <h2 className="text-5xl font-bold text-center mb-6">
@@ -439,6 +413,8 @@ export default function HomePage() {
 
             {/* PRICING */}
 
+<div className="h-40" />
+
       <section
         id="pricing"
         className="container py-36"
@@ -457,7 +433,13 @@ export default function HomePage() {
 
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(3, 1fr)",
+    gap: "32px",
+  }}
+>
 
           {/* FREE */}
 
@@ -606,6 +588,8 @@ export default function HomePage() {
 
       {/* CTA */}
 
+<div className="h-40" />
+
       <section className="container py-36">
 
         <div className="card text-center max-w-5xl mx-auto p-12">
@@ -632,6 +616,8 @@ export default function HomePage() {
       </section>
 
       {/* FOOTER */}
+
+<div className="h-40" />
 
       <footer className="border-t py-20">
 
@@ -687,9 +673,9 @@ export default function HomePage() {
 
           </div>
 
-          <div className="border-t mt-12 pt-8 text-sm text-slate-500 text-center">
+          {/* <div className="border-t mt-12 pt-8 text-sm text-slate-500 text-center">
             © 2026 Sola. All rights reserved.
-          </div>
+          </div> */}
 
         </div>
 
@@ -697,4 +683,4 @@ export default function HomePage() {
 
     </main>
   );
-}
+  }
