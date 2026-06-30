@@ -100,8 +100,8 @@ export default function OnboardingPage() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-50">
-      <div className="max-w-6xl mx-auto px-6 py-12">
+    <main className="h-screen bg-slate-50 flex items-center justify-center overflow-hidden">
+      <div className="w-full max-w-4xl px-6">
 
         {/* LOGO */}
         <div className="flex justify-center mb-10">
@@ -121,6 +121,7 @@ export default function OnboardingPage() {
 />
         </div>
 
+<div className="w-full max-w-4xl"></div>
         {/* HERO */}
         <div className="text-center mb-14">
           <h1 className="text-5xl font-bold mb-5">
@@ -135,9 +136,12 @@ export default function OnboardingPage() {
             Мы полностью настроим обучение специально под тебя.
           </p>
         </div>
+<div className="text-center mb-6"></div>
 
-{step === 1 && (
-  <div>
+{/* {step === 1 && (
+  <div> */}
+  {step === 1 && (
+  <div className="h-[420px] flex flex-col justify-between">
     {/* STEP 1 */}
     <div className="bg-white rounded-[32px] shadow-sm border border-slate-200 p-10">
       <div className="mb-10">
@@ -174,7 +178,7 @@ export default function OnboardingPage() {
     </div>
 
     {/* BUTTON (ОТДЕЛЬНО НО ПРАВИЛЬНО) */}
-    <div className="mt-8 text-center">
+    <div className="mt-auto text-center">
       <button
         disabled={!goal}
         onClick={() => setStep(2)}
@@ -186,8 +190,10 @@ export default function OnboardingPage() {
   </div>
 )}
 
-{step === 2 && (
-  <div>
+{/* {step === 2 && (
+  <div> */}
+  {step === 2 && (
+  <div className="h-[420px] flex flex-col justify-between">
     {/* STEP 2 */}
     <div className="bg-white rounded-[32px] shadow-sm border border-slate-200 p-10 mt-10">
       <div className="mb-10">
@@ -233,7 +239,7 @@ export default function OnboardingPage() {
     </div>
 
     {/* BUTTON */}
-    <div className="mt-8 text-center">
+    <div className="mt-auto text-center">
       <button
         disabled={selectedInterests.length === 0}
         onClick={() => setStep(3)}
@@ -246,7 +252,7 @@ export default function OnboardingPage() {
 )}
 
 {step === 3 && (
-  <div>
+  <div className="h-[420px] flex flex-col justify-between">
     {/* STEP 3 */}
     <div className="bg-white rounded-[32px] shadow-sm border border-slate-200 p-10 mt-10">
       <div className="mb-10">
@@ -281,7 +287,7 @@ export default function OnboardingPage() {
     </div>
 
     {/* CONTINUE */}
-    <div className="mt-12 text-center">
+    <div className="mt-auto text-center">
       <button
         onClick={handleContinue}
         disabled={!isValid || loading}
