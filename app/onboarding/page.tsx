@@ -109,7 +109,7 @@ export default function OnboardingPage() {
         </div>
 
         {/* PROGRESS */}
-        <div className="max-w-2xl mx-auto mb-12">
+        {/* <div className="max-w-2xl mx-auto mb-12">
           <div className="flex justify-between text-sm text-slate-500 mb-3">
             <span>Шаг {step} из 3</span>
           </div>
@@ -120,9 +120,9 @@ export default function OnboardingPage() {
 />
         </div>
 
-<div className="w-full max-w-4xl"></div>
+<div className="w-full max-w-4xl"></div> */}
         {/* HERO */}
-        <div className="text-center mb-6">
+        {/* <div className="text-center mb-6">
           <h1 className="text-5xl font-bold mb-5">
             Добро пожаловать
             <br />
@@ -135,7 +135,7 @@ export default function OnboardingPage() {
             Мы полностью настроим обучение специально под тебя.
           </p>
         </div>
-<div className="text-center mb-6"></div>
+<div className="text-center mb-6"></div> */}
 
 {/* {step === 1 && (
   <div> */}
