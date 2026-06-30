@@ -176,6 +176,8 @@ export default function OnboardingPage() {
       </div>
     </div>
 
+<div className="h-40" />
+
     {/* BUTTON (ОТДЕЛЬНО НО ПРАВИЛЬНО) */}
     <div className="mt-auto text-center">
       <button
@@ -237,6 +239,8 @@ export default function OnboardingPage() {
       </div>
     </div>
 
+<div className="h-40" />
+
     {/* BUTTON */}
     <div className="mt-auto text-center">
       <button
@@ -284,6 +288,8 @@ export default function OnboardingPage() {
         ))}
       </div>
     </div>
+
+<div className="h-40" />
 
     {/* CONTINUE */}
     <div className="mt-auto text-center">
