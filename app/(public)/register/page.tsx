@@ -50,7 +50,7 @@ export default function RegisterPage() {
         </h1>
 
         <p className="text-slate-500">
-          Начни изучать английский с ИИ.
+          Начни изучать английский с Sola.
         </p>
 
         <input

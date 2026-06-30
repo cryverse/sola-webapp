@@ -20,7 +20,7 @@ export default function HomePage() {
 
           <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-12">
             Уроки, разговорная практика, словарь как Anki,
-            система прогресса и AI-фидбек.
+            система прогресса и фидбек.
             Всё что нужно для перехода от понимания английского
             к свободной речи.
           </p>
@@ -183,7 +183,7 @@ export default function HomePage() {
               </h3>
 
               <p>
-                AI создаёт уроки под твой уровень,
+                Генерация уроков под твой уровень,
                 цели и интересы.
               </p>
 
@@ -217,7 +217,7 @@ export default function HomePage() {
               </h3>
 
               <p>
-                AI анализирует ошибки,
+                Анализирование допущенных ошибок,
                 словарный запас и уровень речи.
               </p>
 
@@ -354,7 +354,7 @@ export default function HomePage() {
           <div className="card">
 
             <h3 className="font-bold text-2xl mb-3">
-              📚 AI Уроки
+              📚 Уроки
             </h3>
 
             <p>
@@ -463,7 +463,7 @@ export default function HomePage() {
               <li>✓ Базовый словарь</li>
 
               <li className="text-slate-400">
-                ✕ AI Speaking
+                ✕ Speaking
               </li>
 
               <li className="text-slate-400">
@@ -544,9 +544,10 @@ export default function HomePage() {
 
             <div className="mb-6">
 
-              <div className="text-slate-400 line-through text-xl">
-                3990 ₽
-              </div>
+              <div className="text-slate-400 !line-through text-xl">
+  3990 ₽
+</div>
+
 
               <span className="text-5xl font-bold">
                 2990 ₽
