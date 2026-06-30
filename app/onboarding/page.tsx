@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import { createInitialUserData } from "./actions";
 
@@ -38,6 +39,7 @@ export default function OnboardingPage() {
   const [minutes, setMinutes] = useState<number | null>(null);
   const [loading, setLoading] = useState(false);
   const [step, setStep] = useState(1);
+  const router = useRouter();
 
   function toggleInterest(item: string) {
     setSelectedInterests((prev) => {
@@ -59,45 +61,44 @@ export default function OnboardingPage() {
     minutes !== null &&
     minutes > 0;
 
-  async function handleContinue() {
-    if (!isValid) return;
+async function handleContinue() {
+  if (!isValid) return;
 
-    try {
-      setLoading(true);
+  try {
+    setLoading(true);
 
-      const { data: { user } } = await supabase.auth.getUser();
+    const { data, error: userError } = await supabase.auth.getUser();
+    const user = data?.user;
 
-      if (!user) {
-        alert("User not found");
-        return;
-      }
-
-      const { error } = await supabase
-        .from("user_preferences")
-        .upsert({
-          user_id: user.id,
-          goal,
-          interests: selectedInterests,
-          native_language: "Russian",
-          target_language: "English",
-          daily_minutes: minutes,
-        });
-
-      if (error) {
-        alert(error.message);
-        return;
-      }
-
-      await createInitialUserData(user.id);
-
-      window.location.href = "/placement-test";
-    } catch (e) {
-      console.error(e);
-      alert("Something went wrong.");
-    } finally {
-      setLoading(false);
+    if (!user || userError) {
+      window.location.href = "/login";
+      return;
     }
+
+    const { error } = await supabase
+  .from("user_preferences")
+  .upsert({
+    user_id: user.id,
+    goal,
+    interests: selectedInterests,
+    daily_minutes: minutes,
+  });
+
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    await createInitialUserData(user.id);
+
+    router.push("/placement-intro");
+
+  } catch (e) {
+    console.error(e);
+  } finally {
+    setLoading(false);
   }
+}
 
   return (
     <main className="min-h-screen bg-slate-50 flex justify-center py-10">
