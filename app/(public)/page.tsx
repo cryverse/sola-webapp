@@ -6,8 +6,6 @@ export default function HomePage() {
 
       {/* HERO */}
 
-<div className="h-40" />
-
       <section className="container py-36 text-center">
 
         <div className="max-w-5xl mx-auto">
@@ -27,25 +25,25 @@ export default function HomePage() {
             к свободной речи.
           </p>
 
-          <div className="flex flex-col md:flex-row justify-center gap-4 mb-8">
-
 <div className="h-40" />
 
-            <Link
-              href="/register"
-              className="btn btn-primary text-lg px-8 py-4"
-            >
-              Начать бесплатно
-            </Link>
+<div className="flex flex-col md:flex-row justify-center gap-4 mb-8">
 
-            <a
-              href="#pricing"
-              className="btn text-lg px-8 py-4"
-            >
-              Посмотреть тарифы
-            </a>
+  <Link
+    href="/register"
+    className="btn btn-primary text-lg px-8 py-4"
+  >
+    Начать бесплатно
+  </Link>
 
-          </div>
+  <a
+    href="#pricing"
+    className="btn text-lg px-8 py-4"
+  >
+    Посмотреть тарифы
+  </a>
+
+</div>
 
           <p className="text-sm text-slate-500">
             Без карты • Регистрация за 30 секунд
