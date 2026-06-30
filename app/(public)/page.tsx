@@ -25,8 +25,6 @@ export default function HomePage() {
             к свободной речи.
           </p>
 
-<div className="h-40" />
-
 <div className="flex flex-col md:flex-row justify-center gap-4 mb-8">
 
   <Link
