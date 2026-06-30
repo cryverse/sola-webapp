@@ -37,6 +37,7 @@ export default function OnboardingPage() {
   const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
   const [minutes, setMinutes] = useState<number | null>(null);
   const [loading, setLoading] = useState(false);
+  const [step, setStep] = useState(1);
 
   function toggleInterest(item: string) {
     setSelectedInterests((prev) => {
@@ -111,12 +112,13 @@ export default function OnboardingPage() {
         <div className="max-w-2xl mx-auto mb-12">
           <div className="flex justify-between text-sm text-slate-500 mb-3">
             <span>Настройка обучения</span>
-            <span>Шаг 1 из 3</span>
+            <span>Шаг {step} из 3</span>
           </div>
 
-          <div className="h-3 rounded-full bg-slate-200 overflow-hidden">
-            <div className="h-full w-1/3 bg-blue-600 rounded-full transition-all" />
-          </div>
+          <div
+  className="h-full bg-blue-600 rounded-full transition-all"
+  style={{ width: `${(step / 3) * 100}%` }}
+/>
         </div>
 
         {/* HERO */}
@@ -134,137 +136,172 @@ export default function OnboardingPage() {
           </p>
         </div>
 
-        {/* STEP 1 */}
-        <div className="bg-white rounded-[32px] shadow-sm border border-slate-200 p-10">
-          <div className="mb-10">
-            <div className="inline-flex px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm">
-              Шаг 1
-            </div>
-
-            <h2 className="text-3xl font-bold mt-5">
-              Зачем ты изучаешь английский?
-            </h2>
-
-            <p className="text-slate-500 mt-3 text-lg">
-              От этого будут зависеть темы уроков и упражнения
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-5">
-            {goals.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setGoal(item.id)}
-                className={`rounded-3xl border p-7 text-left transition-all duration-200 hover:scale-[1.02]
-                  ${goal === item.id
-                    ? "border-blue-600 bg-blue-50 shadow-lg"
-                    : "border-slate-200 hover:border-blue-300 bg-white"
-                  }`}
-              >
-                <div className="text-4xl mb-5">{item.icon}</div>
-                <h3 className="font-bold text-xl mb-2">{item.title}</h3>
-                <p className="text-slate-500 leading-7">{item.description}</p>
-              </button>
-            ))}
-          </div>
+{step === 1 && (
+  <div>
+    {/* STEP 1 */}
+    <div className="bg-white rounded-[32px] shadow-sm border border-slate-200 p-10">
+      <div className="mb-10">
+        <div className="inline-flex px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm">
+          Шаг 1
         </div>
 
-        {/* STEP 2 */}
-        <div className="bg-white rounded-[32px] shadow-sm border border-slate-200 p-10 mt-10">
-          <div className="mb-10">
-            <div className="inline-flex px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm">
-              Шаг 2
-            </div>
+        <h2 className="text-3xl font-bold mt-5">
+          Зачем ты изучаешь английский?
+        </h2>
 
-            <h2 className="text-3xl font-bold mt-5">
-              Что тебе интересно?
-            </h2>
+        <p className="text-slate-500 mt-3 text-lg">
+          От этого будут зависеть темы уроков и упражнения
+        </p>
+      </div>
 
-            <p className="text-slate-500 mt-3 text-lg">
-              Мы будем использовать это для примеров
-            </p>
-
-            <div className="mt-4 text-sm text-slate-500">
-              Выбрано:{" "}
-              <span className="font-semibold text-blue-600">
-                {selectedInterests.length}/5
-              </span>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap gap-3">
-            {interests.map((item) => {
-              const active = selectedInterests.includes(item);
-
-              return (
-                <button
-                  key={item}
-                  onClick={() => toggleInterest(item)}
-                  className={`px-5 py-3 rounded-full text-sm font-medium transition-all border
-                    ${active
-                      ? "bg-blue-600 text-white border-blue-600 shadow-md scale-[1.03]"
-                      : "bg-slate-50 text-slate-700 border-slate-200 hover:border-blue-400 hover:bg-blue-50"
-                    }`}
-                >
-                  {item}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* STEP 3 */}
-        <div className="bg-white rounded-[32px] shadow-sm border border-slate-200 p-10 mt-10">
-          <div className="mb-10">
-            <div className="inline-flex px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm">
-              Шаг 3
-            </div>
-
-            <h2 className="text-3xl font-bold mt-5">
-              Сколько времени ты готов заниматься в день?
-            </h2>
-
-            <p className="text-slate-500 mt-3 text-lg">
-              Это влияет на интенсивность программы
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[15, 30, 60, 120].map((val) => (
-              <button
-                key={val}
-                onClick={() => setMinutes(val)}
-                className={`py-5 rounded-2xl border font-bold text-lg transition-all
-                  ${minutes === val
-                    ? "bg-blue-600 text-white border-blue-600 shadow-lg scale-[1.03]"
-                    : "bg-white border-slate-200 hover:border-blue-400 hover:bg-blue-50"
-                  }`}
-              >
-                {val} мин
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* CONTINUE */}
-        <div className="mt-12 text-center">
+      <div className="grid md:grid-cols-2 gap-5">
+        {goals.map((item) => (
           <button
-            onClick={handleContinue}
-            disabled={!isValid || loading}
-            className={`w-full max-w-2xl mx-auto py-5 rounded-2xl text-white font-bold text-xl transition-all
-              ${!isValid || loading
-                ? "bg-slate-300 cursor-not-allowed"
-                : "bg-blue-600 hover:bg-blue-700 shadow-xl hover:scale-[1.01]"
-              }`}
+            key={item.id}
+            onClick={() => setGoal(item.id)}
+            className={`rounded-3xl border p-7 text-left transition-all duration-200 hover:scale-[1.02] ${
+  goal === item.id
+    ? "border-blue-600 bg-blue-50 shadow-lg"
+    : "border-slate-200 hover:border-blue-300 bg-white"
+}`}
           >
-            {loading ? "Сохранение..." : "Continue →"}
+            <div className="text-4xl mb-5">{item.icon}</div>
+            <h3 className="font-bold text-xl mb-2">{item.title}</h3>
+            <p className="text-slate-500 leading-7">{item.description}</p>
           </button>
+        ))}
+      </div>
+    </div>
 
-          <p className="text-sm text-slate-500 mt-5">
-            Placement test займет примерно 25–30 минут
-          </p>
+    {/* BUTTON (ОТДЕЛЬНО НО ПРАВИЛЬНО) */}
+    <div className="mt-8 text-center">
+      <button
+        disabled={!goal}
+        onClick={() => setStep(2)}
+        className="px-6 py-3 bg-blue-600 text-white rounded-xl disabled:opacity-40"
+      >
+        Далее →
+      </button>
+    </div>
+  </div>
+)}
+
+{step === 2 && (
+  <div>
+    {/* STEP 2 */}
+    <div className="bg-white rounded-[32px] shadow-sm border border-slate-200 p-10 mt-10">
+      <div className="mb-10">
+        <div className="inline-flex px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm">
+          Шаг 2
         </div>
 
+        <h2 className="text-3xl font-bold mt-5">
+          Что тебе интересно?
+        </h2>
+
+        <p className="text-slate-500 mt-3 text-lg">
+          Мы будем использовать это для примеров
+        </p>
+
+        <div className="mt-4 text-sm text-slate-500">
+          Выбрано:{" "}
+          <span className="font-semibold text-blue-600">
+            {selectedInterests.length}/5
+          </span>
+        </div>
+      </div>
+
+      <div className="flex flex-wrap gap-3">
+        {interests.map((item) => {
+          const active = selectedInterests.includes(item);
+
+          return (
+            <button
+              key={item}
+              onClick={() => toggleInterest(item)}
+              className={`px-5 py-3 rounded-full text-sm font-medium transition-all border ${
+  active
+    ? "bg-blue-600 text-white border-blue-600 shadow-md scale-[1.03]"
+    : "bg-slate-50 text-slate-700 border-slate-200 hover:border-blue-400 hover:bg-blue-50"
+}`}
+            >
+              {item}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+
+    {/* BUTTON */}
+    <div className="mt-8 text-center">
+      <button
+        disabled={selectedInterests.length === 0}
+        onClick={() => setStep(3)}
+        className="px-6 py-3 bg-blue-600 text-white rounded-xl disabled:opacity-40"
+      >
+        Далее →
+      </button>
+    </div>
+  </div>
+)}
+
+{step === 3 && (
+  <div>
+    {/* STEP 3 */}
+    <div className="bg-white rounded-[32px] shadow-sm border border-slate-200 p-10 mt-10">
+      <div className="mb-10">
+        <div className="inline-flex px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm">
+          Шаг 3
+        </div>
+
+        <h2 className="text-3xl font-bold mt-5">
+          Сколько времени ты готов заниматься в день?
+        </h2>
+
+        <p className="text-slate-500 mt-3 text-lg">
+          Это влияет на интенсивность программы
+        </p>
+      </div>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {[15, 30, 60, 120].map((val) => (
+          <button
+            key={val}
+            onClick={() => setMinutes(val)}
+            className={`py-5 rounded-2xl border font-bold text-lg transition-all ${
+  minutes === val
+    ? "bg-blue-600 text-white border-blue-600 shadow-lg scale-[1.03]"
+    : "bg-white border-slate-200 hover:border-blue-400 hover:bg-blue-50"
+}`}
+          >
+            {val} мин
+          </button>
+        ))}
+      </div>
+    </div>
+
+    {/* CONTINUE */}
+    <div className="mt-12 text-center">
+      <button
+        onClick={handleContinue}
+        disabled={!isValid || loading}
+        className={`w-full max-w-2xl mx-auto py-5 rounded-2xl text-white font-bold text-xl transition-all
+          ${
+            !isValid || loading
+              ? "bg-slate-300 cursor-not-allowed"
+              : "bg-blue-600 hover:bg-blue-700 shadow-xl hover:scale-[1.01]"
+          }
+        `}
+      >
+        {loading ? "Сохранение..." : "Continue →"}
+      </button>
+
+      <p className="text-sm text-slate-500 mt-5">
+        Placement test займет примерно 25–30 минут
+      </p>
+    </div>
+  </div>
+)}
       </div>
     </main>
   );
